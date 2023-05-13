@@ -1,8 +1,8 @@
-# Stimulation
+# Simulation
 A basic stimulation about some circles and their life cycle.
 
 
-This stimulation represents life in a spcific environment.
+This simulation represents life in a spcific environment.
 These are the rules of nature in this environment:
 1) Every "day" a new constent number of food items are created. 
 2) If a creature doesn't eat food during that "day" it dies.
@@ -13,7 +13,7 @@ These are the rules of nature in this environment:
 7) A creatures color is determined by its speed.
 8) After a number of days the stimulation is finished.
 
-The purpuse of the stimulation is to see which gene is better to have in this enviroment, being big or being fast.
+The purpuse of the simulation is to see which gene is better to have in this enviroment, being big or being fast.
 There is an addition of Hunters which have the same rules only they have to eat creatures.
 
 
