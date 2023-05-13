@@ -8,11 +8,15 @@ import matplotlib.pyplot as plt
 import classes
 from classes import *
 
-# Initialize Pygame
+# Initialize Pygame and setup constents
 pygame.init()
 BORDER_X_SIZE =1000
 BORDER_Y_SIZE = 800
 WANT_HUNTERS = True
+NUMBER_OF_FOOD = 50
+NUMBER_OF_CREATURES = 20
+NUMBER_OF_HUNTERS = 2 
+
 # Set the screen size and caption
 size = (BORDER_X_SIZE, BORDER_Y_SIZE)
 screen = pygame.display.set_mode(size)
@@ -38,7 +42,7 @@ def check_collision(creature, food):
 
 #create a list of creatures
 alive_c = []
-for i in range(20):
+for i in range(NUMBER_OF_CREATURES):
     c = creature(random.randint(0,100000))
     c.set_x(random.randint(0,BORDER_X_SIZE))
     c.set_y(random.randint(0,BORDER_Y_SIZE))
@@ -50,7 +54,7 @@ for i in range(20):
     alive_c.append(c)
 alive_h = []
 if WANT_HUNTERS:
-    for i in range(2):
+    for i in range(NUMBER_OF_HUNTERS):
         c = hunter(random.randint(0,100000))
         c.set_x(random.randint(0,BORDER_X_SIZE))
         c.set_y(random.randint(0,BORDER_Y_SIZE))
@@ -60,13 +64,7 @@ if WANT_HUNTERS:
         c.set_x_dr(random.randint(-3,3))
         c.set_speed(15/c.get_radius())
         alive_h.append(c)
-#list of food
 list_of_food = []
-#for i in range(25):
-#    f = food()
-#    f.set_y(random.randint(0,600))
-#    f.set_x(random.randint(0, 800))
-#    list_of_food.append(f)
 list_of_speed = [[None]]
 list_of_radui = [[None]]
 list_of_Pchance = [[None]]
@@ -80,7 +78,7 @@ while True:
     life = True
     if count ==20 or all_dead == True:
         break
-    for i in range(50):
+    for i in range(NUMBER_OF_FOOD):
         f = classes.food()
         f.set_y(random.randint(0, BORDER_Y_SIZE))
         f.set_x(random.randint(0, BORDER_X_SIZE))
