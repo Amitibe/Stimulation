@@ -12,10 +12,11 @@ from classes import *
 pygame.init()
 BORDER_X_SIZE =1000
 BORDER_Y_SIZE = 800
-WANT_HUNTERS = True
+WANT_HUNTERS = False
 NUMBER_OF_FOOD = 50
 NUMBER_OF_CREATURES = 20
-NUMBER_OF_HUNTERS = 2 
+NUMBER_OF_HUNTERS = 2
+NUMBER_OF_DAYS= 50
 
 # Set the screen size and caption
 size = (BORDER_X_SIZE, BORDER_Y_SIZE)
@@ -76,7 +77,7 @@ while True:
         if event.type == pygame.QUIT:
             running = False
     life = True
-    if count ==20 or all_dead == True:
+    if count == NUMBER_OF_DAYS or all_dead == True:
         break
     for i in range(NUMBER_OF_FOOD):
         f = classes.food()
@@ -209,24 +210,25 @@ average_speed =[]
 avrerage_pchance =[]
 sum =0
 try:
-    for b in list_of_speed:
+    for speed in list_of_speed:
         sum = 0
-        for g in b:
-          sum +=g
-        average_speed.append(sum / len(b))
-    for b in list_of_radui:
+        for each_speed in speed:
+          sum +=each_speed
+        average_speed.append((sum / len(speed))*2)
+    for speed in list_of_radui:
         sum=0
-        for g in b:
-            sum +=g
-        avrerage_size.append(sum/len(b))
-    for b in list_of_Pchance:
+        for each_speed in speed:
+            sum +=each_speed
+        avrerage_size.append(sum / len(speed))
+    for speed in list_of_Pchance:
         sum = 0
-        for g in b:
-            sum +=g
-        avrerage_pchance.append(sum/len(b))
+        for each_speed in speed:
+            sum +=each_speed
+        avrerage_pchance.append(sum / len(speed))
     print()
     print(len(xix))
     print(len(avrerage_pchance))
+    plt.title("Number of creatures per generation")
     plt.plot(xix,avrerage_pchance)
     plt.show()
     plt.plot(xix, average_speed, label="Speed")
